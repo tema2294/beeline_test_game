@@ -3,20 +3,20 @@ import {default_counter} from "../constants/defaultData";
 import {PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../store/store";
 
-export const buttonClickHelper = (state:RootState,action:PayloadAction<IDataButton>)=> {
+export const getUpdatedState = (state:RootState,action:PayloadAction<IDataButton>)=> {
     let counter = {...state.counter}
     const { btnName } = action.payload
     const { activeButtons  } = counter
 
     if (activeButtons === 1) {
-        return secondCase(state,action,btnName)
+        return getUpdatedStateCaseWithFullPanels(state,action,btnName)
     } else {
-        return firstCase(state,action,btnName, activeButtons)
+        return getUpdatedStateDefaultCase(state,action,btnName, activeButtons)
     }
 
 }
 
-const firstCase = (state:RootState,action:PayloadAction<IDataButton>,btnName:string,activeButtons:number)=> {
+const getUpdatedStateDefaultCase = (state:RootState,action:PayloadAction<IDataButton>,btnName:string,activeButtons:number)=> {
     const data = {...state.data}
     let counter = {...state.counter}
     const { activeButtonsName } = counter
@@ -35,7 +35,7 @@ const firstCase = (state:RootState,action:PayloadAction<IDataButton>,btnName:str
     return { data,counter }
 }
 
-const secondCase = (state:RootState,action:PayloadAction<IDataButton>,btnName:string)=> {
+const getUpdatedStateCaseWithFullPanels = (state:RootState,action:PayloadAction<IDataButton>,btnName:string)=> {
     const data = {...state.data}
     let counter = {...state.counter}
     const { activeButtonsName } = counter

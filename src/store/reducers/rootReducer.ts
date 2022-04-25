@@ -3,7 +3,7 @@ import { createSlice,PayloadAction } from '@reduxjs/toolkit'
 import {ICounter, IData, IDataButton} from "../types";
 import {defaultData, default_counter} from "../../constants/defaultData";
 import {transformData} from "../../tools/transformData";
-import {buttonClickHelper} from "../../tools/buttonClickHelper";
+import {getUpdatedState} from "../../tools/buttonClickHelper";
 import {saveSession} from "../../tools/saveSession";
 import {getDefaultData} from "../../tools/getDefaultData";
 
@@ -29,7 +29,7 @@ export const rootSlice = createSlice({
         },
         onButtonClick: (state,action:PayloadAction<IDataButton>) => {
 
-            const { data,counter } = buttonClickHelper(state,action)
+            const { data,counter } = getUpdatedState(state,action)
 
             state.data = data
             state.counter = counter

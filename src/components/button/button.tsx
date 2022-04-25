@@ -14,7 +14,7 @@ function Button (props : IButton) {
     }
     const errorClassName = isError ? 'btn_error' : null
     const selectClassName = isSelected ? 'btn_active' : null
-    const additionalClassName = errorClassName || selectClassName || null
+    const additionalClassName = errorClassName || selectClassName || 'bnt_default'
     return <button onClick={handleClick} className={`${additionalClassName} btn`}>{btnName}</button>
 }
 

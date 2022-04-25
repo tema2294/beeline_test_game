@@ -1,0 +1,19 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #505050;
+  border-radius: 10px;
+  min-width: 100px;
+  min-height: 50px;
+  cursor: pointer;
+}
+.btn_default {
+  background: gray;
+}
+.btn_active {
+  background: #6666de;
+}
+.btn_error {
+  background: red;
+}
